@@ -65,7 +65,7 @@ Route::get('/getBestCustomers',function(){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $result = pg_query($conn,"SELECT customer_fname,customer_lname,customer_id, SUM(P.product_price * O.product_quantity_per_product) AS SUM_RESULT 
@@ -82,7 +82,7 @@ Route::get('/getBestCities',function(){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $result = pg_query($conn,"SELECT address_city,COUNT(*) AS Count FROM CUSTOMER C,ADDRESS A 
@@ -98,7 +98,7 @@ Route::get('/numberOfAllOrders',function(){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $result = pg_query($conn,"SELECT order_id FROM \"Order\"");
@@ -127,7 +127,7 @@ Route::get('/getTables',function(){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $result = pg_query($conn,"SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE table_type='BASE TABLE' and table_schema='public'");
@@ -150,7 +150,7 @@ Route::get('/getAllCustomers',function(){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $result = pg_query($conn,"select * from customer");
@@ -165,7 +165,7 @@ Route::get('/fetchAllProducts',function(){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $result = pg_query($conn,"select * from product");
@@ -198,7 +198,7 @@ Route::post('/tryToLogin',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=/var/run/postgresql port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=/var/run/postgresql port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -251,7 +251,7 @@ Route::post('/checkForUsername',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -281,7 +281,7 @@ Route::post('/insertNewCustomer',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -311,7 +311,7 @@ Route::post('/checkTheAddress',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -356,7 +356,7 @@ Route::post('/getProductDetails',function(Request $request){
     $product_id=$request->input('prod_id');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $result = pg_query($conn,"SELECT * FROM product where product_id={$product_id}");
@@ -379,7 +379,7 @@ Route::post('/makeOrder',function(Request $request){
     $username=$request->input('username');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     //Get user id
@@ -415,7 +415,7 @@ Route::post('/numberOfOrders',function(Request $request){
 
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -440,7 +440,7 @@ Route::post('/getTotalCost',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -461,7 +461,7 @@ Route::post('/getSomeOrders',function(Request $request){
 
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -487,7 +487,7 @@ Route::post('/removeOrder',function(Request $request){
 
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $order_id=$request->input('order_id');
@@ -504,7 +504,7 @@ Route::post('/deleteAccount',function(Request $request){
 
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -520,7 +520,7 @@ Route::post('/getCustomerDetails',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -538,7 +538,7 @@ Route::post('/changeCustomerPassword',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -555,7 +555,7 @@ Route::post('/searchProduct',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $searchText=$request->input('searchText');
@@ -606,7 +606,7 @@ Route::post('/deleteAdminAccount',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -621,7 +621,7 @@ Route::post('/createNewAdmin',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $username=$request->input('username');
@@ -654,7 +654,7 @@ Route::post('/deleteCurrentTable',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $table=$request->input('table');
@@ -673,7 +673,7 @@ Route::post('/addFieldToTable',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $table=$request->input('table');
@@ -710,7 +710,7 @@ Route::post('/getFieldsFromTable',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $table=$request->input('table');
@@ -735,7 +735,7 @@ Route::post('/deleteFields',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $table=$request->input('table');
@@ -756,7 +756,7 @@ Route::post('/checkIfProductExists',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $productName=$request->input('productName');
@@ -783,7 +783,7 @@ Route::post('/checkIfSupplierExists',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $supplier=$request->input('supplier');
@@ -809,7 +809,7 @@ Route::post('/createSupplier',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $supplier=$request->input('supplier');
@@ -825,7 +825,7 @@ Route::post('/createProduct',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     if($conn != NULL){
@@ -868,7 +868,7 @@ Route::post('/getSomeFromAllOrders',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $limit = $request->input('limit');
@@ -893,7 +893,7 @@ Route::post('/editStatus',function(Request $request){
     header('Content-type: application/json');
 
     //Connect to database 
-    $connectionStr ="host=localhost port=5432 dbname=eidiko_thema user=postgres password=postgres";
+    $connectionStr ="host=localhost port=5432 dbname=eshop user=postgres password=postgres";
     $conn=pg_connect($connectionStr);
 
     $newStatus = $request->input('newStatus');

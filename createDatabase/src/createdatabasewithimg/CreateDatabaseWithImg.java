@@ -34,7 +34,7 @@ public class CreateDatabaseWithImg {
         
         //Connect to database
         try{
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/eidiko_thema","postgres", "postgres");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/eshop","postgres", "postgres");
         }
         catch(SQLException ex){
             System.err.println( ex.getClass().getName()+": "+ ex.getMessage() );
